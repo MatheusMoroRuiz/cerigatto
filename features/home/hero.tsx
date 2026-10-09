@@ -109,7 +109,7 @@ export function Hero({ banners }: { banners: Banner[] }) {
           <div className="mt-8 max-w-2xl text-foreground">
             <SearchBar />
           </div>
-          <Link href={routes.products()} className="mt-6 inline-flex items-center gap-2 font-semibold text-accent hover:underline">
+          <Link href={routes.products()} className="mt-6 inline-flex items-center gap-2 font-semibold text-white underline-offset-4 hover:underline">
             Ver todos os produtos <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </Container>

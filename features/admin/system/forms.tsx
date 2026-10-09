@@ -164,9 +164,9 @@ export function SiteSettingsForm({ values }: { values: SiteSettingsValues }) {
             <div className="grid gap-4 sm:grid-cols-3">
               {(
                 [
-                  ["theme_primary", "Cor principal", values.theme.primary ?? "#1b3f8f"],
-                  ["theme_accent", "Cor de destaque", values.theme.accent ?? "#f2b705"],
-                  ["theme_secondary", "Cor escura", values.theme.secondary ?? "#14191f"],
+                  ["theme_primary", "Cor principal", values.theme.primary ?? "#2b3990"],
+                  ["theme_accent", "Cor de destaque", values.theme.accent ?? "#d6322a"],
+                  ["theme_secondary", "Cor escura", values.theme.secondary ?? "#18204a"],
                 ] as const
               ).map(([name, label, color]) => (
                 <Field key={name} id={name} label={label} error={errors[name]}>

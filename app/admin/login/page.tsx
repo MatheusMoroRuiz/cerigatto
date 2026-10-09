@@ -25,8 +25,8 @@ export default function LoginPage({ searchParams }: PageProps<"/admin/login">) {
     <main className="grid min-h-dvh lg:grid-cols-2">
       <div className="relative hidden flex-col justify-between overflow-hidden bg-secondary p-12 text-secondary-foreground lg:flex">
         <div>
-          <p className="font-display text-3xl font-extrabold" style={{ fontStretch: "125%" }}>
-            CERIGATTO
+          <p className="font-display text-3xl font-extrabold italic" style={{ fontStretch: "112%" }}>
+            CERIGA<span className="text-accent">TT</span>O
           </p>
           <p className="mt-1 font-mono text-xs tracking-[0.16em] text-secondary-foreground/60 uppercase">Painel administrativo</p>
         </div>

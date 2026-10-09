@@ -40,7 +40,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
         Pular para o conteúdo
       </a>
       {config.site.demoNoticeEnabled ? (
-        <div className="bg-accent text-accent-foreground">
+        <div className="bg-primary text-primary-foreground">
           <p className="mx-auto max-w-[1440px] px-4 py-1.5 text-center text-xs font-medium sm:px-6 lg:px-10">
             Ambiente de demonstração: produtos, marcas, preços e banners são fictícios.
           </p>

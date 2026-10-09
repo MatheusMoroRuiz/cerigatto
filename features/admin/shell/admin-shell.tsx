@@ -155,8 +155,8 @@ export function AdminShell({
       >
         <div className={cn("flex h-16 items-center border-b border-secondary-foreground/10", collapsed ? "justify-center" : "justify-between px-5")}>
           {!collapsed ? (
-            <Link href="/admin" className="font-display text-lg font-extrabold" style={{ fontStretch: "125%" }}>
-              CERIGATTO
+            <Link href="/admin" className="font-display text-lg font-extrabold italic" style={{ fontStretch: "112%" }}>
+              CERIGA<span className="text-accent">TT</span>O
             </Link>
           ) : null}
           <button
@@ -171,7 +171,7 @@ export function AdminShell({
         <div className="flex-1 overflow-y-auto">
           <NavLinks role={role} collapsed={collapsed} />
         </div>
-        <div className="tape-thin" aria-hidden="true" />
+        <div className="tape" aria-hidden="true" />
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">

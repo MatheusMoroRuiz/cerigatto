@@ -3,8 +3,9 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 /**
- * Marca da Cerigatto. Enquanto não houver logotipo oficial cadastrado no painel,
- * usa a apresentação tipográfica provisória.
+ * Marca da Cerigatto. Enquanto não houver arquivo oficial cadastrado no painel,
+ * reproduz a placa da loja em código: barras crescentes, faixas vermelhas,
+ * CERIGATTO em itálico com "TT" vermelho e "MAT. DE CONSTRUÇÃO".
  */
 export function Logo({
   logoUrl,
@@ -24,28 +25,31 @@ export function Logo({
       aria-label={`${siteName} — página inicial`}
     >
       {logoUrl ? (
-        <Image src={logoUrl} alt={siteName} width={180} height={48} className="h-10 w-auto sm:h-12" priority />
+        <Image src={logoUrl} alt={siteName} width={180} height={56} className="h-11 w-auto sm:h-13" priority />
       ) : (
-        <span className="flex flex-col leading-none">
+        <span className="flex w-max flex-col leading-none">
+          <span
+            aria-hidden="true"
+            className={cn("brand-bars h-3.5 w-full sm:h-4", inverted ? "bg-white" : "bg-primary")}
+          />
+          <span aria-hidden="true" className="mt-[3px] h-[2px] w-full bg-accent" />
           <span
             className={cn(
-              "font-display text-[1.45rem] font-extrabold tracking-[-0.01em] sm:text-[1.7rem]",
-              inverted ? "text-secondary-foreground" : "text-foreground",
+              "font-display mt-[3px] text-[1.45rem] font-extrabold italic sm:text-[1.7rem]",
+              inverted ? "text-white" : "text-primary",
             )}
-            style={{ fontStretch: "125%" }}
+            style={{ fontStretch: "112%", letterSpacing: "-0.015em" }}
           >
-            CERIGATTO
+            CERIGA<span className="text-accent">TT</span>O
           </span>
-          <span className="mt-1 flex items-center gap-2">
-            <span aria-hidden="true" className="tape-thin w-6 transition-[width] duration-300 group-hover:w-9" />
-            <span
-              className={cn(
-                "font-mono text-[0.6rem] font-medium tracking-[0.16em] uppercase sm:text-[0.65rem]",
-                inverted ? "text-secondary-foreground/70" : "text-muted-foreground",
-              )}
-            >
-              Materiais de Construção
-            </span>
+          <span aria-hidden="true" className="mt-[2px] h-[2px] w-full bg-accent" />
+          <span
+            className={cn(
+              "mt-[3px] text-[0.58rem] font-semibold tracking-[0.1em] uppercase sm:text-[0.66rem]",
+              inverted ? "text-white/80" : "text-primary",
+            )}
+          >
+            Mat. de Construção
           </span>
         </span>
       )}

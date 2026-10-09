@@ -30,7 +30,7 @@ function FooterColumn({ title, children }: { title: string; children: React.Reac
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li>
-      <Link href={href} className="text-secondary-foreground/85 transition-colors hover:text-accent">
+      <Link href={href} className="text-secondary-foreground/85 transition-colors hover:text-white hover:underline">
         {children}
       </Link>
     </li>
@@ -62,7 +62,7 @@ export async function SiteFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={SOCIAL_LABELS[link.platform]}
-                    className="inline-flex size-10 items-center justify-center rounded-md border border-secondary-foreground/15 transition-colors hover:border-accent hover:text-accent"
+                    className="inline-flex size-10 items-center justify-center rounded-md border border-secondary-foreground/15 transition-colors hover:border-accent hover:text-white hover:underline"
                   >
                     <SocialIcon platform={link.platform} className="size-[18px]" />
                   </a>
@@ -101,7 +101,7 @@ export async function SiteFooter() {
           <ul className="space-y-3 text-sm text-secondary-foreground/85">
             {business.phone ? (
               <li>
-                <a href={`tel:+55${onlyDigits(business.phone)}`} className="inline-flex items-center gap-2 hover:text-accent">
+                <a href={`tel:+55${onlyDigits(business.phone)}`} className="inline-flex items-center gap-2 hover:text-white hover:underline">
                   <Phone className="size-4 shrink-0" aria-hidden="true" />
                   {formatPhone(business.phone)}
                 </a>
@@ -109,7 +109,7 @@ export async function SiteFooter() {
             ) : null}
             {business.email ? (
               <li>
-                <a href={`mailto:${business.email}`} className="inline-flex items-center gap-2 break-all hover:text-accent">
+                <a href={`mailto:${business.email}`} className="inline-flex items-center gap-2 break-all hover:text-white hover:underline">
                   <Mail className="size-4 shrink-0" aria-hidden="true" />
                   {business.email}
                 </a>
@@ -141,17 +141,17 @@ export async function SiteFooter() {
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             <li>
-              <Link href={routes.privacy()} className="hover:text-accent">
+              <Link href={routes.privacy()} className="hover:text-white hover:underline">
                 Política de Privacidade
               </Link>
             </li>
             <li>
-              <Link href={routes.terms()} className="hover:text-accent">
+              <Link href={routes.terms()} className="hover:text-white hover:underline">
                 Termos de Uso
               </Link>
             </li>
             <li>
-              <Link href={routes.cookies()} className="hover:text-accent">
+              <Link href={routes.cookies()} className="hover:text-white hover:underline">
                 Política de Cookies
               </Link>
             </li>

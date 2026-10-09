@@ -21,7 +21,7 @@ export function ProductBadges({ product, className }: { product: ProductCard; cl
       </Badge>
     ) : null,
     product.isFeatured && !product.sale.active ? (
-      <Badge key="featured" tone="accent">
+      <Badge key="featured" tone="primary">
         Destaque
       </Badge>
     ) : null,

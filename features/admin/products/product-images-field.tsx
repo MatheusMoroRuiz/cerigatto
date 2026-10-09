@@ -142,7 +142,7 @@ export function ProductImagesField({
               <div className="relative size-20 shrink-0 overflow-hidden rounded-md bg-muted">
                 <Image src={image.url} alt="" fill sizes="80px" className="object-cover" />
                 {image.isCover ? (
-                  <span className="absolute inset-x-0 bottom-0 bg-accent py-0.5 text-center text-[0.65rem] font-bold">CAPA</span>
+                  <span className="absolute inset-x-0 bottom-0 bg-accent py-0.5 text-center text-[0.65rem] font-bold text-accent-foreground">CAPA</span>
                 ) : null}
               </div>
               <div className="grid min-w-0 flex-1 gap-1.5">

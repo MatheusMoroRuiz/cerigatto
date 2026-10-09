@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Catálogo de materiais de construção em Bauru/SP",
     start_url: "/",
     display: "standalone",
-    background_color: "#f2f3f0",
-    theme_color: "#14191f",
+    background_color: "#f3f4f7",
+    theme_color: "#18204a",
     lang: "pt-BR",
     icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }],
   };

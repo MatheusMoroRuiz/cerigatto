@@ -8,6 +8,7 @@ import "./globals.css";
 const display = Archivo({
   subsets: ["latin"],
   axes: ["wdth"],
+  style: ["normal", "italic"],
   variable: "--font-display-face",
   display: "swap",
 });
@@ -53,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#14191f",
+  themeColor: "#18204a",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

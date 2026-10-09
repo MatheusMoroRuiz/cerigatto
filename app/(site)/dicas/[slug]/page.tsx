@@ -93,7 +93,7 @@ async function PostContent({ params }: Props) {
             </ul>
           ) : null}
           <aside className="mt-12 overflow-hidden rounded-xl border bg-surface">
-            <Tape thin />
+            <Tape />
             <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="font-display text-lg font-bold">Ficou com dúvida sobre o material?</p>
