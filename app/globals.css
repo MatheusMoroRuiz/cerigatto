@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+/*
+ * Cerigatto — design tokens
+ * Paleta "canteiro": concreto (fundo), nanquim (texto), azul-prancheta (marca),
+ * amarelo-trena (assinatura visual, usado com parcimônia) e verde WhatsApp (conversão).
+ * Altere a identidade aqui (ou pelo painel, em Configurações → Tema).
+ */
+:root {
+  --background: #f2f3f0;
+  --surface: #ffffff;
+  --surface-sunken: #e8eae5;
+  --foreground: #14191f;
+  --muted: #e4e7e1;
+  --muted-foreground: #565e66;
+  --border: #d6dad3;
+  --border-strong: #b9bfb6;
+
+  --primary: #1b3f8f;
+  --primary-hover: #15326f;
+  --primary-foreground: #ffffff;
+  --primary-soft: #e6ecf8;
+
+  --secondary: #14191f;
+  --secondary-foreground: #f2f3f0;
+
+  --accent: #f2b705;
+  --accent-foreground: #14191f;
+
+  --success: #15803d;
+  --warning: #a35207;
+  --danger: #c2261c;
+
+  --whatsapp: #0e7a3d;
+  --whatsapp-hover: #0b6332;
+  --whatsapp-foreground: #ffffff;
+
+  --ring: #1b3f8f;
+  --radius: 0.625rem;
+  --header-height: 4.5rem;
+  --shadow-card: 0 1px 2px rgb(20 25 31 / 0.04), 0 8px 24px -12px rgb(20 25 31 / 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-hover: var(--whatsapp-hover);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-face), var(--font-body), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.25rem);
+  --radius-xl: calc(var(--radius) + 0.625rem);
+
+  --shadow-card: var(--shadow-card);
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Títulos: Archivo expandido — o "letreiro de obra" da marca */
+  .font-display {
+    font-family: var(--font-display);
+    font-stretch: 112%;
+    letter-spacing: -0.02em;
+  }
+
+  /*
+   * Assinatura visual: a trena. Faixa amarela com marcações a cada
+   * "centímetro" (8px) e marcação longa a cada "5 cm" (40px).
+   */
+  .tape {
+    height: 0.625rem;
+    background-color: var(--accent);
+    background-image:
+      linear-gradient(90deg, var(--foreground) 1px, transparent 1px),
+      linear-gradient(90deg, var(--foreground) 1px, transparent 1px);
+    background-size:
+      40px 100%,
+      8px 40%;
+    background-repeat: repeat-x;
+    background-position:
+      0 0,
+      0 0;
+  }
+
+  .tape-thin {
+    height: 0.375rem;
+    background-color: var(--accent);
+    background-image: linear-gradient(90deg, var(--foreground) 1px, transparent 1px);
+    background-size: 8px 55%;
+    background-repeat: repeat-x;
+  }
+
+  .sheet-overlay[data-state="open"] {
+    animation: fade-in 0.2s ease-out;
+  }
+  .sheet-right[data-state="open"] {
+    animation: slide-in-right 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .sheet-left[data-state="open"] {
+    animation: slide-in-left 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .sheet-bottom[data-state="open"] {
+    animation: slide-in-bottom 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* Malha de "rejunte" usada em grids editoriais */
+  .grout-grid {
+    background-color: var(--border);
+    gap: 1px;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, var(--muted) 25%, var(--surface-sunken) 50%, var(--muted) 75%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+
+  /* Conteúdo editorial (Markdown) */
+  .prose-cerigatto {
+    color: var(--foreground);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .prose-cerigatto > * + * {
+    margin-top: 1.1em;
+  }
+  .prose-cerigatto h2 {
+    font-family: var(--font-display);
+    font-stretch: 108%;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-top: 2em;
+    letter-spacing: -0.01em;
+  }
+  .prose-cerigatto h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 1.6em;
+  }
+  .prose-cerigatto a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-cerigatto ul,
+  .prose-cerigatto ol {
+    padding-left: 1.25rem;
+  }
+  .prose-cerigatto ul {
+    list-style: disc;
+  }
+  .prose-cerigatto ol {
+    list-style: decimal;
+  }
+  .prose-cerigatto li + li {
+    margin-top: 0.35em;
+  }
+  .prose-cerigatto li::marker {
+    color: var(--muted-foreground);
+  }
+  .prose-cerigatto blockquote {
+    border-left: 4px solid var(--accent);
+    background: var(--surface);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .prose-cerigatto table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-cerigatto th,
+  .prose-cerigatto td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+  }
+  .prose-cerigatto th {
+    background: var(--muted);
+    font-weight: 600;
+  }
+  .prose-cerigatto strong {
+    font-weight: 700;
+  }
+  .prose-cerigatto code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--muted);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}

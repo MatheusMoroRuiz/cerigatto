@@ -1,0 +1,27 @@
+/** Construtores de URL públicas — evita strings de rota espalhadas */
+export const routes = {
+  home: () => "/",
+  products: () => "/produtos",
+  product: (slug: string) => `/produto/${slug}`,
+  category: (slug: string) => `/categoria/${slug}`,
+  brands: () => "/marcas",
+  brand: (slug: string) => `/marca/${slug}`,
+  offers: () => "/ofertas",
+  environments: () => "/ambientes",
+  environment: (slug: string) => `/ambientes/${slug}`,
+  blog: () => "/dicas",
+  blogPost: (slug: string) => `/dicas/${slug}`,
+  blogCategory: (slug: string) => `/dicas?categoria=${encodeURIComponent(slug)}`,
+  search: (query?: string) => (query ? `/busca?q=${encodeURIComponent(query)}` : "/busca"),
+  about: () => "/sobre",
+  contact: () => "/contato",
+  favorites: () => "/favoritos",
+  quoteList: () => "/lista-de-orcamento",
+  privacy: () => "/politica-de-privacidade",
+  terms: () => "/termos-de-uso",
+  cookies: () => "/cookies",
+  admin: {
+    home: () => "/admin",
+    login: () => "/admin/login",
+  },
+} as const;
